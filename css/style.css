@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');/*wczytanie zewnętrznej czcionki pochodzącej z Google Fonts*/
+:root{
+    --header-height: 100px;
+}/*W sekcji root można zdefiniować zmienne, które będą wielokrotnie wykorzystywane w naszym projekcie. Na początek podajemy nazwę zmiennej (jakąkolwiek, bez polskich znaków, spacje zastępując myślinikami) poprzedzoną dwoma myślnikami, a następnie jej wartość. W miejscu, w którym będziemy ją wykorzystywać wstawiamy w miejsce konkretnej wartości odwołanie do zmiennej - var(--nazwa-zmiennej)*/
+*{
+    margin: 0;/*zresetowanie marginesów dokumentu*/
+    padding: 0;/*oraz marginesów wewnętrznych*/
+    box-sizing: border-box;/*wliczenie paddingów oraz borderów do wielkości elementów*/
+    font-family: "Open Sans", sans-serif;/*Odwołanie dla używanej czcionki pochodzącej z Google Fonts*/
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior:smooth;
+    /*powoduje dodanie płynnego przewijania strony po kliknięciu linku z menu. przedostek -webkit dla przeglądarek chrome i safari*/
+}
+header{
+    background: #ddd;
+    display: flex;/*wyświetla cały nagłówek jako flex, domyślnie wyświetla się on jako wiersz*/
+    gap: 10px;/*ustawia odstęp pomiędzy kolejnymi elementami flexa*/
+    justify-content: space-between;/*justify-content wyrównuje element wzdłuż kierunku, w którym wyświetla się flex (domyślnie wiersz)*/
+    align-items: center;/*align-items wyrównuje element poprzecznie do kierunku, w którym wyświetla się flex (domyślnie wiersz)*/
+    height: var(--header-height);/*w tym miejscu odwołujemy się do zmiennej zdefiniowanej w grupie root*/
+    position: sticky;/*powoduje przyklejenie elementu*/
+    top: 0;/*i przykleja go do górnej krawędzi okna przeglądarki*/
+}
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+header .logo img{
+    height: calc(var(--header-height) - 10px);/*z racji ustawienia wysokości nagłówka bazowym wymiarem dla logotypu będzie jego wysokość. Przeglądarka oblicza ją na podstawie wysokości nagłowka ustawionej w :root i odejmuje od niej 10px. Istotne są spacje z obu stron minusa*/
+    width: auto;/*dla mniej ogarniętych przeglądarek ustawiamy automatyczne, proporcjonalne skalowanie obrazka*/
+    /*box-shadow: 0 0 9px 5px black;*/
+    filter: drop-shadow(0 0 8px #ffc0cb);/*rzucanie cienia w przypadku obrazków z przezroczystością (png,gif, webp) wokół obszarów posiadających pełne krycie*/
+}
+nav{
+    flex: 8;/*użycie wartości 8 powoduje, że element ten będzie 8 razy szerszy niż bazowy, ustawiony dla header .tryb i .social*/
+    display: flex;
+    width: 100%;
+    height:100%;
+}
+nav ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    list-style: none;/*usunięcie znaczników listy - w naszym przypadku kropek*/
+}
+nav ul li, nav ul li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;/*usunięcie podkreślenia dla tekstu*/
+    color: black;
+    text-transform: uppercase;/*zwiększenie wielkości liter na same duże*/
+    font-weight: 600;/*zmienia grubość czcionki zgodnie z parametrami pochodzącymi z czcionki*/
+    font-size: 1.25rem;/*użycie jednostki rem powoduje, że czcionka będzie się odnosiła do czcionki bazowej dla systemu. Jeżeli używana była by skala em, wówczas odniesienie było by do poprzednio użytej wielkości czcionki. czyli jeżeli wcześniej zadeklarowalibyśmy jakiemuś elementowi font-size na 5em, a następnie temu na 3em, to docelowo czcionka by była najpierw powiększona x5, a potem jeszcze x3*/
+    transition: 0.7s;/*czas trwania zmian dla parametrów, które będą po najechaniu posiadały inne wartości. Transition zawsze wstawia się w elemencie o stanie bazowym*/
+}
+nav ul li a:hover{
+    background: red;
+    color: white;
+}
+header i{
+    font-size: 1.5rem;
+}
+header .tryb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+header .social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+}
+header .social a{
+    color: #000;
+    transition: 0.7s;
+}
+header .social a:hover i.fa-square-facebook{
+    color: #00f;
+}
+header .social a:hover i.fa-youtube{
+    color: #c00;
+}
+#baner{
+    background: url(../img/bg1.jpg);/*podana ścieżka do pliku uwzględnia, że plik css, w którym znajduje się definicja tła znajduje się w innym folderze, niż follder główny. Jeżeli użyjemy linku img/1.jpg wówczas folder img będzie szukany wewnątrz folderu css. Użycie ../ powoduje przejście katalog wyżej*/
+    background-repeat: no-repeat;/*usuwa powtarzanie tła, ktore domyślnie jest ustawione na powtarzanie poziomo i pionowo*/
+    background-position: center;/*wyśrodkowuje obrazek tła. pozycja ma dwa parametry - poziomy i pionowy - i pozwala ustawić punkt zaczepienia tła w bloku, w którym obraz tła występuje. Bazowo jest to górny prawy róg. Punktami odniesienia są wszystkie rogi obrazu, połowy boków oraz środek*/
+    background-size: cover;/*powoduje rozciągniecie obrazu do dłuższego z boków bloku, wewnątrz którego tło się znajduje*/
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+.kratka{
+    width: 300px;
+    min-height: 400px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;/*obraca kierunek flexa z wiersza na kolumnę*/
+    justify-content: space-around;/*w związku z obróceniem kierunku flexa na pionowy w flex-direction justify-content działa dalej zgodnie z kierunkiem flexa, a on teraz nie jest poziomy, tylko pionowy*/
+    align-items: center;
+    background: rgba(0, 0, 0,0.6);/*dodatkowy parametr a w kolorze odpowiada za przezroczystość tła. wartości od 0 do 1 odpowiadają 0% do 100%*/
+    text-align: center;
+    padding: 15px;
+    /*opacity: 0.6;*/
+}
+.kratka h1{
+    font-weight: 200;
+}
+.kratka a{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    width: 100%;
+    transition: 0.7s;
+}
+.kratka a:hover{
+    background: #fff;
+    color: #000;
+}
+#o-nas{
+    
+}
+#o-nas .obrazek{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#o-nas .obrazek img{
+    border-radius: 50%;/*powoduje ustawienie zaokrągleń obramowania na 50% długości boku, co powoduje powstanie koła. Warunek - obiekt powinien być kwadratem*/
+    border: 1px dashed #ccc;/*obramowanie o grubości 1px linia przerywania i kolor szestnastkowo*/
+    background: #fff;
+    padding: 8px;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
+    box-shadow: 0 0 20px rgba(0, 0, 0,0.75);/*cień rzucany pod obiektem. Pierwszy z parametrów to przesunięcie poziome, drugi - pionowe, trzeci odległość na jaką pada cień, no i kolor cienia*/
+    transition: 0.7s;
+}
+#o-nas .obrazek img:hover{
+    border-radius: 50% 20%;/*zmiana obramowania. Wartość 50% dotyczy lewego górnego i prawego dolnego rogu, 20% prawego górnego i lewego dolnego rogu*/
+}
+#o-nas .opis{
+    flex: 2;
+}
+#paralax{
+    background: url(../img/bg2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;/*powoduje przypięcie obrazka tła nie do bloku, w którym się znajduje, tylko do całego okna przeglądarki*/
+    justify-content: flex-start;
+    padding-left: 5%;
+}
+.fullheight{
+    min-height: calc(100vh - var(--header-height));/*minimalna wysokość dokumentu jest liczona przez przeglądarkę jako 100% wysokości ekranu urządzenia pomniejszone o zdefiniowaną w root wysokość headera*/
+    scroll-margin-top: var(--header-height);/*początkowy magrines górny o wysokości headera zdefiniowanego w root, zapobiegający ukrywaniu się części bloku pod przypiętym za pomocą position:sticky headerem.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*.test{
+    width: 300px;
+    height: 200px;
+    background: yellow;
+    padding: 25px;
+    color: red;
+}
+.kolo{
+    width: 100px;
+    height: 100px;
+    background: salmon;
+    border-radius: 50%;
+}
+.zielony{
+    color: green;
+    padding: 10px;
+}
+#baner{
+    color: blue;
+}*/

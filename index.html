@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl"><!--parametr lang przekazuje przeglądarce informacje odnośnie języka dokumentu-->
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--viewport charakteryzuje, jak się ma zachować urządzenie w momencie wczytywania dokumentu. W tym przypadku szerokość dokumentu jest równa szerokości ekranu urządzenia, a skala początkowa jest równa 100%-->
+    <title>Tytul dokumentu (max 50 zzs)</title>
+    <meta name="description" content="Opis tego co znajduje się w dokumencie (max 160 zzs)">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer"><!--Pobranie czcionki fontawesome-->
 </head>
 <body>
-
+    <header>
+        <div class="logo">
+            <a href="#baner" aria-label="Przejdź do początku strony">
+                <img src="img/logo.png" alt="Logo strony">
+            </a>
+        </div>
+        <nav aria-label="Nawigacja główna">
+            <ul>
+                <li><a href="#baner">Start</a></li><!--odnośniki na zasadzie kotwicy, kierujące do odpowiedniego miejsca w dokumencie oznaczonego tą samą nazwą dla parametru id-->
+                <li><a href="#o-nas">o Nas</a></li>
+                <li><a href="#paralax">ParaLaXa</a></li>
+                <li><a href="#panele">Panele</a></li>
+                <li><a href="#galeria">GALeria</a></li>
+                <li><a href="#kontakt">kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="tryb">
+            <i class="fa-regular fa-sun"></i>
+            <i class="fa-regular fa-moon"></i>
+        </div>
+        <div class="social">
+            <a href="https://fb.com" target="_blank"><!-- parametr target w wartością _blank powoduje otwarcie linku w nowej zakładce przeglądarki-->
+                <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+    </header>
+    <section class="wrapper">
+        <section id="baner" class="fullheight"><!--parametr id dla kotwicy, czyli linku z menu. jego nazwa musi być zgodna z tą, którą podaliśmy jako link w menu (bez #)-->
+            <div class="kratka">
+                <h1>Jakiś tytuł</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, ipsum aperiam! Dolorum quaerat nam neque magnam dicta adipisci accusamus ipsa? In labore aperiam rem necessitatibus laborum delectus alias quas cum.</p>
+                <a href="#">Link</a>
+            </div>
+        </section>
+        <section id="o-nas" class="fullheight">
+            <div class="obrazek">
+                <img src="img/obraz.png" alt="zaślepka">
+            </div>
+            <div class="opis">Opis</div>
+        </section>
+        <section id="paralax" class="fullheight">
+            <div class="kratka">
+                <h1>Jakiś tytuł</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, ipsum aperiam! Dolorum quaerat nam neque magnam dicta adipisci accusamus ipsa? In labore aperiam rem necessitatibus laborum delectus alias quas cum.</p>
+                <a href="#">Link</a>
+            </div>
+        </section>
+        <section id="panele" class="fullheight">
+            <div class="panel">panel</div>
+            <div class="panel">panel</div>
+            <div class="panel">panel</div>
+            <div class="panel">panel</div>
+        </section>
+        <section id="galeria" class="fullheight">Galeria</section>
+        <section id="kontakt" class="fullheight">
+            <div class="mapa">mapa</div>
+            <div class="formularz">formularz</div>
+        </section>
+        <!--<section class="test zielony">text</section>
+        <section class="kolo"></section>-->
+    </section>
+    <footer>
+        <div class="col1">lewa</div>
+        <div class="col2">środek</div>
+        <div class="col3">prawa</div>
+    </footer>
 </body>
 </html>
